@@ -4,22 +4,30 @@ from flask import Flask, request, jsonify
 # and environment variable management
 import os
 from dotenv import load_dotenv
-
-# Load environment variables
-load_dotenv()
+from config import FLASK_ENV, GOOGLE_TRANSLATE_API_KEY, TRUSTED_ORIGIN 
 
 # Initialize the Flask application
 app = Flask(__name__)
 
+# and browser security
+from flask_cors import CORS
+CORS(
+    app,
+    origins=TRUSTED_ORIGIN,
+    supports_credentials=True,
+    methods=["GET", "POST", "PUT", "DELETE"],
+    allow_headers=["Content-Type", "Authorization"],
+)
+
 # Google Translate API configuration
-GOOGLE_TRANSLATE_API_KEY = os.getenv('GOOGLE_TRANSLATE_API_KEY')
+GOOGLE_TRANSLATE_API_KEY = GOOGLE_TRANSLATE_API_KEY
 GOOGLE_TRANSLATE_API_URL = 'https://translation.googleapis.com/language/translate/v2'
 
 @app.route('/')
 def index():
     return jsonify({
         'endpoints': {
-            '/api/greet': {
+            '/api/v1/greet': {
                 'method': 'POST',
                 'example_input': {
                     'name': 'John',
@@ -57,6 +65,6 @@ def greet():
     
     except Exception as e:
         return jsonify({'error': 'That did not work!', 'details': str(e)}), 500
-    
-    if __name__ == '__main__':
-        app.run(host='0.0.0.0', port=5001, debug=True)
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5010, debug=True)

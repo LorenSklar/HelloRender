@@ -8,6 +8,13 @@
 
 ## Development Principles
 
+### Simplicity First
+- Prefer simple, straightforward solutions over complex architectures
+- Choose file names and structures that are intuitive (e.g., main.py over app.py)
+- Keep configuration close to where it's used (e.g., config.py in app folder)
+- Avoid over-engineering for future scale that may never come
+- Remember: You can always refactor when needed
+
 ### Code Ownership
 - Write all code yourself to maximize learning
 - Make mistakes and learn from them - this is part of the process
@@ -30,10 +37,11 @@
 - Keep security in mind (even in simple applications)
 
 ### Project Structure
-- Maintain a clear separation between frontend and backend code
-- Organize files logically
-- Keep the codebase simple and maintainable
-- Document your API endpoints and their purposes
+- Keep it simple and intuitive
+- Place files where they make the most sense for a solo developer
+- Use clear, descriptive file names
+- Maintain basic separation of concerns
+- Don't over-organize - a flat structure is often better for small projects
 
 ### Version Control
 - Use Git for version control
@@ -56,4 +64,7 @@
 - This is a learning project - focus on understanding, not perfection
 - Every challenge is an opportunity to learn
 - Building things yourself is the best way to learn
-- Don't rush - take time to understand each component 
+- Don't rush - take time to understand each component
+- Keep it simple - you're building an MVP, not a production system
+- Choose solutions that make sense for a solo developer or small team
+- You can always make it more complex later if needed
