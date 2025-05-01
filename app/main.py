@@ -4,10 +4,19 @@ from flask import Flask, request, jsonify
 # and environment variable management
 import os
 from dotenv import load_dotenv
-from app.config import FLASK_ENV, GOOGLE_TRANSLATE_API_KEY, TRUSTED_ORIGIN 
+# from config import FLASK_ENV, GOOGLE_TRANSLATE_API_KEY, TRUSTED_ORIGIN 
 
 # Initialize the Flask application
 app = Flask(__name__)
+
+# Configure logging
+import logging
+logging.basicConfig(level=logging.DEBUG)
+logger = logging.getLogger(__name__)
+
+# Log the current environment and trusted origin
+logger.debug(f"Current FLASK_ENV: {FLASK_ENV}")
+logger.debug(f"Current TRUSTED_ORIGIN: {TRUSTED_ORIGIN}")
 
 # and browser security
 from flask_cors import CORS
@@ -19,16 +28,9 @@ CORS(
     allow_headers=["Content-Type", "Authorization"],
 )
 
-# and configure logging
-import logging
-logging.basicConfig(level=logging.DEBUG, 
-                    format='%(asctime)s - %(levelname)s - %(message)s')
-logger = logging.getLogger('werkzeug')
-logger.setLevel(logging.DEBUG)
-
 # Google Translate API configuration
-GOOGLE_TRANSLATE_API_KEY = GOOGLE_TRANSLATE_API_KEY
-GOOGLE_TRANSLATE_API_URL = 'https://translation.googleapis.com/language/translate/v2'
+# GOOGLE_TRANSLATE_API_KEY = GOOGLE_TRANSLATE_API_KEY
+# GOOGLE_TRANSLATE_API_URL = 'https://translation.googleapis.com/language/translate/v2'
 
 @app.route('/')
 def index():
