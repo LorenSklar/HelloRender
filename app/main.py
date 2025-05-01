@@ -4,7 +4,7 @@ from flask import Flask, request, jsonify
 # and environment variable management
 import os
 from dotenv import load_dotenv
-from config import FLASK_ENV, GOOGLE_TRANSLATE_API_KEY, TRUSTED_ORIGIN 
+from app.config import FLASK_ENV, GOOGLE_TRANSLATE_API_KEY, TRUSTED_ORIGIN 
 
 # Initialize the Flask application
 app = Flask(__name__)
