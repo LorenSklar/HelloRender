@@ -5,33 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Greeting App</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js"></script>
-
+    <script src="script.js" defer></script>
 </head>
 <body>
-    <div class="form-container">
-
-        <h1 style="text-align: center;">Greeting App</h1>
+    <div class="container">
+        <h1>Greeting App</h1>
 
         <div class="input-container">
             <label for="name">What's your name?</label>
-            <input type="text" id="name" placeholder="John">
+            <input 
+                type="text" 
+                id="name" 
+                placeholder="John"
+                aria-label="Your name"
+            >
         </div>
 
         <div class="output-container">
-            <a href="#" id="language-link" onclick="toggleLanguage()">English</a>
+            <button 
+                type="button" 
+                id="language-link" 
+                onclick="toggleLanguage()"
+                aria-label="Change language"
+            >
+                English
+            </button>
         </div>
 
         <input type="hidden" id="language" value="en">
     
         <div class="button-container">
-            <button onclick="sendGreeting()">Say hello!</button>
+            <button 
+                type="button" 
+                onclick="sendGreeting()"
+                aria-label="Get greeting"
+            >
+                Say hello!
+            </button>
         </div>
     
         <div id="result"></div>
     </div>
-
-
-
 </body>
 </html> 

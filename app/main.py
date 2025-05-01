@@ -22,6 +22,8 @@ logger.debug(f"Current TRUSTED_ORIGIN: {TRUSTED_ORIGIN}")
 
 # and browser security
 from flask_cors import CORS
+CORS(app)
+'''
 CORS(
     app,
     origins=[TRUSTED_ORIGIN],
@@ -29,6 +31,7 @@ CORS(
     methods=["GET", "POST", "PUT", "DELETE"],
     allow_headers=["Content-Type", "Authorization"],
 )
+'''
 
 # Google Translate API configuration
 # GOOGLE_TRANSLATE_API_KEY = GOOGLE_TRANSLATE_API_KEY
