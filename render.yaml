@@ -3,7 +3,7 @@ services:
     name: greeting-app
     env: python
     buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn app.app:app
+    startCommand: gunicorn app.main:app
     envVars:
       - key: GOOGLE_TRANSLATE_API_KEY
         sync: false 
