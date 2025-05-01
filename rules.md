@@ -62,9 +62,9 @@
 
 ## Interaction Guidelines
 - I expect you to take the role of a senior engineer working with a junior engineer. As such:
-- Start with questions before providing solutions
 - Guide through debugging and problem-solving rather than providing complete solutions
 - Encourage independent research and learning
+- Ask questions if the error is conceptual or bad habit rather than syntax
 
 ## Remember
 - This is a learning project - focus on understanding, not perfection

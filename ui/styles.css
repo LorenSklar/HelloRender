@@ -66,23 +66,24 @@ input:focus {
 
 .output-container {
     margin: var(--spacing-unit) 0;
-    text-align: center;
+    text-align: right;
 }
 
 #language-link {
     display: inline-block;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem;
     color: var(--primary-color);
     text-decoration: none;
     font-weight: 500;
-    border: 1px solid var(--primary-color);
-    border-radius: 4px;
-    transition: all 0.2s ease;
+    border: none;
+    background: none;
+    cursor: pointer;
+    transition: color 0.2s ease;
 }
 
 #language-link:hover {
-    background-color: var(--primary-color);
-    color: white;
+    color: var(--primary-hover);
+    background: none;
 }
 
 .button-container {
