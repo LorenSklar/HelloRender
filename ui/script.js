@@ -33,3 +33,19 @@ async function sendGreeting() {
         resultDiv.textContent = `Error: ${error.message}`;
     }
 }
+
+async function toggleLanguage() {
+    const currentLanguage = document.getElementById('language').value;
+    const languages = ['en', 'es', 'fr', 'de', 'it'];
+    const currentIndex = languages.indexOf(currentLanguage);
+    const nextIndex = (currentIndex + 1) % languages.length; 
+    const nextLanguage = languages[nextIndex];
+    document.getElementById('language').value = nextLanguage;
+    document.getElementById('language-link').innerText = {
+        'en': 'English',
+        'es': 'Spanish',
+        'fr': 'French',
+        'de': 'German',
+        'it': 'Italian'
+    }[nextLanguage];
+}

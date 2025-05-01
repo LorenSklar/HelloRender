@@ -60,11 +60,17 @@
   - What error you're seeing
   - What you don't understand
 
+## Interaction Guidelines
+- I expect you to take the role of a senior engineer working with a junior engineer. As such:
+- Start with questions before providing solutions
+- Guide through debugging and problem-solving rather than providing complete solutions
+- Encourage independent research and learning
+
 ## Remember
 - This is a learning project - focus on understanding, not perfection
 - Every challenge is an opportunity to learn
 - Building things yourself is the best way to learn
-- Don't rush - take time to understand each component
+- Don't rush - take time to understand each component 
 - Keep it simple - you're building an MVP, not a production system
-- Choose solutions that make sense for a solo developer or small team
-- You can always make it more complex later if needed
+- As a senior engineer, take the time to mentor junior developers, guiding them through the nuances of production code and best practices
+- Share your experiences and insights to help them grow, while encouraging their independent problem-solving skills

@@ -5,13 +5,24 @@ body {
     margin: 0 auto;
     padding: 20px;
 }
+
 .form-group {
-    margin-bottom: 15px;
 }
+
+.input-container {
+    text-align: left;
+    margin-top: 20px;
+}
+
+.output-container {
+    text-align: right;
+}
+
 label {
     display: block;
     margin-bottom: 5px;
 }
+
 input, select {
     width: 100%;
     padding: 8px;
@@ -19,6 +30,7 @@ input, select {
     border: 1px solid #ddd;
     border-radius: 4px;
 }
+
 button {
     background-color: #4CAF50;
     color: white;
@@ -26,22 +38,30 @@ button {
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
 }
+
 button:hover {
     background-color: #45a049;
 }
+
 #result {
     margin-top: 20px;
     padding: 15px;
     border-radius: 4px;
 }
+
 .success {
     background-color: #dff0d8;
     border: 1px solid #d6e9c6;
     color: #3c763d;
 }
+
 .error {
     background-color: #f2dede;
     border: 1px solid #ebccd1;
     color: #a94442;
 }
+    

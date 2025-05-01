@@ -19,6 +19,17 @@ CORS(
     allow_headers=["Content-Type", "Authorization"],
 )
 
+# and basic loggingimport logging
+from flask import Flask
+
+app = Flask(__name__)
+
+# Configure logging
+logging.basicConfig(level=logging.DEBUG, 
+                    format='%(asctime)s - %(levelname)s - %(message)s')
+logger = logging.getLogger('werkzeug')
+logger.setLevel(logging.DEBUG)
+
 # Google Translate API configuration
 GOOGLE_TRANSLATE_API_KEY = GOOGLE_TRANSLATE_API_KEY
 GOOGLE_TRANSLATE_API_URL = 'https://translation.googleapis.com/language/translate/v2'
@@ -53,17 +64,26 @@ def greet():
         # Get language with 'en' as default value
         language = data.get('language', 'en')
 
-        # Return default Enlgish greeting
         if language == 'en':
             greeting = f"Hello, {name}!"
+        elif language == 'fr':
+            greeting = f"Bonjour, {name}!"
+        elif language == 'es':
+            greeting = f"Hola, {name}!"
+        elif language == 'it':
+            greeting = f"Ciao, {name}!"
+        elif language == 'de':
+            greeting = f"Hallo, {name}!"
         else:
             # Translate the greeting to the target language
             # TODO: Implement translation of the greeting to the target language if it is not English
             greeting = f"Hello, {name}!"
 
+        app.logger.info('Request to root endpoint')
         return jsonify({'greeting': greeting})
     
     except Exception as e:
+        app.logger.info('Request to root endpoint')
         return jsonify({'error': 'That did not work!', 'details': str(e)}), 500
 
 if __name__ == '__main__':
