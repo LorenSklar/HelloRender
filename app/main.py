@@ -19,12 +19,7 @@ CORS(
     allow_headers=["Content-Type", "Authorization"],
 )
 
-# and basic loggingimport logging
-from flask import Flask
-
-app = Flask(__name__)
-
-# Configure logging
+# and configure logging
 import logging
 logging.basicConfig(level=logging.DEBUG, 
                     format='%(asctime)s - %(levelname)s - %(message)s')
