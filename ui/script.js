@@ -4,7 +4,7 @@ async function sendGreeting() {
     const resultDiv = document.getElementById('result');
 
     // Construct the full URL with the correct Flask server port
-    const apiUrl = new URL('/api/v1/greet', 'http://localhost:5010');
+    const apiUrl = new URL('/api/v1/greet', 'https://hellorender-ft25.onrender.com');
 
     try {
         const response = await fetch(apiUrl.toString(), {
