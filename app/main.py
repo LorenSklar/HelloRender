@@ -5,6 +5,8 @@ from flask import Flask, request, jsonify
 import os
 from dotenv import load_dotenv
 # from config import FLASK_ENV, GOOGLE_TRANSLATE_API_KEY, TRUSTED_ORIGIN 
+FLASK_ENV = "production"
+TRUSTED_ORIGIN = "https://hellorendergreeting.onrender.com/"
 
 # Initialize the Flask application
 app = Flask(__name__)
