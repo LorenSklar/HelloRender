@@ -13,7 +13,7 @@ app = Flask(__name__)
 from flask_cors import CORS
 CORS(
     app,
-    origins=TRUSTED_ORIGIN,
+    origins=[TRUSTED_ORIGIN],
     supports_credentials=True,
     methods=["GET", "POST", "PUT", "DELETE"],
     allow_headers=["Content-Type", "Authorization"],
