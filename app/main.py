@@ -4,9 +4,7 @@ from flask import Flask, request, jsonify
 # and environment variable management
 import os
 from dotenv import load_dotenv
-# from config import FLASK_ENV, GOOGLE_TRANSLATE_API_KEY, TRUSTED_ORIGIN 
-FLASK_ENV = "production"
-TRUSTED_ORIGIN = "https://hellorendergreeting.onrender.com"
+from config import FLASK_ENV, GOOGLE_TRANSLATE_API_KEY, TRUSTED_ORIGIN 
 
 # Initialize the Flask application
 app = Flask(__name__)
@@ -36,6 +34,7 @@ CORS(
 
 @app.route('/')
 def index():
+    logger.info(f"Root endpoint accessed from: {request.origin}")
     return jsonify({
         'endpoints': {
             '/api/v1/greet': {
@@ -51,18 +50,24 @@ def index():
 @app.route('/api/v1/greet', methods=['POST'])
 def greet():
     try:
+        # Log request source
+        logger.info(f"Greeting request from: {request.origin}")
+        logger.debug(f"Request headers: {dict(request.headers)}")
+
         # Extract JSON data from request
         data = request.get_json()
+        logger.info(f"Request payload: {data}")
 
         # Validate input
         if not data:
+            logger.warning("Empty request body received")
             return jsonify({'error': 'Please provide a JSON body with name and language'}), 400
 
-        # Get name with 'World' asdefault value
+        # Get name with 'World' as default value
         name = data.get('name', 'World')
-
-        # Get language with 'en' as default value
         language = data.get('language', 'en')
+        
+        logger.info(f"Processing greeting - Name: {name}, Language: {language}")
 
         if language == 'en':
             greeting = f"Hello, {name}!"
@@ -75,15 +80,13 @@ def greet():
         elif language == 'de':
             greeting = f"Hallo, {name}!"
         else:
-            # Translate the greeting to the target language
-            # TODO: Implement translation of the greeting to the target language if it is not English
             greeting = f"Hello, {name}!"
 
-        app.logger.info('Request to root endpoint')
+        logger.info(f"Sending greeting: {greeting}")
         return jsonify({'greeting': greeting})
     
     except Exception as e:
-        app.logger.info('Request to root endpoint')
+        logger.error(f"Error processing request: {str(e)}", exc_info=True)
         return jsonify({'error': 'That did not work!', 'details': str(e)}), 500
 
 if __name__ == '__main__':
